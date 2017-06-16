@@ -2,8 +2,13 @@ package automation.framework.tests;
 
 import java.util.concurrent.TimeUnit;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.EdgeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -28,14 +33,20 @@ public class WebDriverManager {
 
 	public WebDriverManager(String browser) {
 
-		if (browser.equals("Chrome"))
-			driver = new ChromeDriver();
-		else if (browser.equals("IE"))
-			driver = new InternetExplorerDriver();
-		else if (browser.equals("Firefox")) {
-			System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+		if (browser.equals("Chrome")) {
+            ChromeDriverManager.getInstance().setup();
+            driver = new ChromeDriver();
+        }
+		else if (browser.equals("IE")) {
+            InternetExplorerDriverManager.getInstance().setup();
+            driver = new InternetExplorerDriver();
+        } else if (browser.equals("Firefox")) {
+            FirefoxDriverManager.getInstance().setup();
 			driver = new FirefoxDriver();
-		}
+		}else if (browser.equals("Edge")){
+            EdgeDriverManager.getInstance().setup();
+            driver = new EdgeDriver();
+        }
 		else if (browser.equals("HTMLUnit"))
 			driver = new HtmlUnitDriver();
 	}

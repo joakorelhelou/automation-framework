@@ -16,6 +16,7 @@ public class SimpleGoogleTest extends BaseTests{
 
     @Test
     public void searchTest() {
+
         GoogleHomePage homePage = PageFactory.initElements(driverManager.getDriver(), GoogleHomePage.class);
         homePage.go(driverManager.getDriver());
 
