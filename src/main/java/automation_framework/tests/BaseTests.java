@@ -1,11 +1,12 @@
 package automation.framework.tests;
 
+import automation.framework.logging.Logging;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
 
-public class BaseTests {
+public class BaseTests implements Logging {
 	public static WebDriverManager driverManager;
 
 	@BeforeClass
