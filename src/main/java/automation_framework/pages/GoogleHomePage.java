@@ -1,6 +1,6 @@
-package automation.framework.pages;
+package automation_framework.pages;
 
-import automation.framework.tests.BaseTests;
+import automation_framework.tests.BaseTests;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

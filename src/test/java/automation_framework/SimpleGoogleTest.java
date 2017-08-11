@@ -1,8 +1,8 @@
-package automation.framework;
+package automation_framework;
 
-import automation.framework.pages.GoogleHomePage;
-import automation.framework.pages.GoogleSearchResults;
-import automation.framework.tests.BaseTests;
+import automation_framework.pages.GoogleHomePage;
+import automation_framework.pages.GoogleSearchResults;
+import automation_framework.tests.BaseTests;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +10,6 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.support.PageFactory;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -22,7 +21,6 @@ import static java.util.Arrays.asList;
 
 @RunWith(Parameterized.class)
 public class SimpleGoogleTest extends BaseTests {
-
 
     @Parameter
     public String sampleParam;

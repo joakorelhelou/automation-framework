@@ -751,7 +751,7 @@ series: {
     }
 
     lines: {
-        steps: boolean
+        automation.framework.steps: boolean
     }
 
     shadowSize: number
@@ -814,7 +814,7 @@ for decorative purposes, however, "zero" allows you to override this behavior.
 It defaults to true for filled lines and bars; setting it to false tells the
 series to use the same automatic scaling as an un-filled line.
 
-For lines, "steps" specifies whether two adjacent data points are
+For lines, "automation.framework.steps" specifies whether two adjacent data points are
 connected with a straight (possibly diagonal) line or with first a
 horizontal and then a vertical line. Note that this transforms the
 data by adding extra points.

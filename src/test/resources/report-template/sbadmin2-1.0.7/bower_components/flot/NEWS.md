@@ -514,7 +514,7 @@ also surfaced, if your graphs are slow in IE, you may want to give it a spin:
 
  - Support for aligning ticks in the axes with "alignTicksWithAxis" to ensure
    that they appear next to each other rather than in between, at the expense
-   of possibly awkward tick steps. (sponsored by Flight Data Services,
+   of possibly awkward tick automation.framework.steps. (sponsored by Flight Data Services,
    www.flightdataservices.com)
 
  - Support for customizing the point type through a callback when plotting
@@ -719,8 +719,8 @@ in event handling speed.
    further processing before it hits the drawing routines. As a side-effect,
    this should make Flot more robust in the face of bad data. (issue 112)
 
- - Step-wise charting: line charts have a new option "steps" that when set to
-   true connects the points with horizontal/vertical steps instead of diagonal
+ - Step-wise charting: line charts have a new option "automation.framework.steps" that when set to
+   true connects the points with horizontal/vertical automation.framework.steps instead of diagonal
    lines.
 
  - The legend labelFormatter now passes the series in addition to just the

@@ -1,7 +1,8 @@
-package automation.framework.tests;
+package automation_framework.tests;
 
 import java.util.concurrent.TimeUnit;
 
+import automation_framework.logging.Logging;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.EdgeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
@@ -15,78 +16,73 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 /**
  * The WebDriver Manger class.
- * 
+ *
  * @author j.rodriguez
- * 
  */
 
-public class WebDriverManager {
+public class WebDriverManager implements Logging {
 
-	public static WebDriver driver;
+    public static WebDriver driver;
 
-	/**
-	 * It initializes the web driver with given desired capabilities.
-	 * 
-	 * @param browser
-	 *            the desired capabilities
-	 */
+    /**
+     * It initializes the web driver with given desired capabilities.
+     *
+     * @param browser the desired capabilities
+     */
 
-	public WebDriverManager(String browser) {
-
-		if (browser.equals("Chrome")) {
+    public WebDriverManager(String browser) {
+        getLogger().info("Initializing browser " + browser);
+        if (browser.equals("Chrome")) {
             ChromeDriverManager.getInstance().setup();
             driver = new ChromeDriver();
-        }
-		else if (browser.equals("IE")) {
+        } else if (browser.equals("IE")) {
             InternetExplorerDriverManager.getInstance().setup();
             driver = new InternetExplorerDriver();
         } else if (browser.equals("Firefox")) {
             FirefoxDriverManager.getInstance().setup();
-			driver = new FirefoxDriver();
-		}else if (browser.equals("Edge")){
+            driver = new FirefoxDriver();
+        } else if (browser.equals("Edge")) {
             EdgeDriverManager.getInstance().setup();
             driver = new EdgeDriver();
-        }
-		else if (browser.equals("HTMLUnit"))
-			driver = new HtmlUnitDriver();
-	}
+        } else if (browser.equals("HTMLUnit"))
+            driver = new HtmlUnitDriver();
+    }
 
-	/**
-	 * returns the driver instance
-	 * 
-	 * @return the driver instance
-	 */
-	public WebDriver getDriver() {
-		return driver;
-	}
+    /**
+     * returns the driver instance
+     *
+     * @return the driver instance
+     */
+    public WebDriver getDriver() {
+        return driver;
+    }
 
-	/**
-	 * sets the implicit time wait in seconds
-	 * 
-	 * @param i
-	 *            desired wait time in seconds
-	 */
-	public void setImplicitWait(int i) {
-		getDriver().manage().timeouts()
-				.implicitlyWait(i, TimeUnit.SECONDS);
+    /**
+     * sets the implicit time wait in seconds
+     *
+     * @param i desired wait time in seconds
+     */
+    public void setImplicitWait(int i) {
+        getDriver().manage().timeouts()
+                .implicitlyWait(i, TimeUnit.SECONDS);
 
-	}
+    }
 
-	/**
-	 * deletes browser cookies
-	 */
-	public void deleteCookies() {
-		getDriver().manage().deleteAllCookies();
+    /**
+     * deletes browser cookies
+     */
+    public void deleteCookies() {
+        getDriver().manage().deleteAllCookies();
 
-	}
+    }
 
-	/**
-	 * closes the browser
-	 */
+    /**
+     * closes the browser
+     */
 
-	public void quitBrowser() {
-		getDriver().quit();
+    public void quitBrowser() {
+        getDriver().quit();
 
-	}
+    }
 
 }
